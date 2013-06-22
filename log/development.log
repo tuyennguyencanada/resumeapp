@@ -1,0 +1,222 @@
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-21 20:48:29 -0600
+Served asset /rails.png - 200 OK (6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateResumes (20130622031035)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "resumes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone" varchar(255), "email" varchar(255), "street" varchar(255), "city" varchar(255), "state" varchar(255), "zip" integer, "note" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130622031035')[0m
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-21 21:31:20 -0600
+Served asset /rails.png - 304 Not Modified (3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-21 21:31:31 -0600
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.1ms)[0m  [1mSELECT "resumes".* FROM "resumes" [0m
+  Rendered resumes/index.html.erb within layouts/application (4.0ms)
+Compiled resumes.css  (8ms)  (pid 802)
+Compiled scaffolds.css  (15ms)  (pid 802)
+Compiled application.css  (44ms)  (pid 802)
+Compiled jquery.js  (2ms)  (pid 802)
+Compiled jquery_ujs.js  (0ms)  (pid 802)
+Compiled resumes.js  (199ms)  (pid 802)
+Compiled application.js  (246ms)  (pid 802)
+Completed 200 OK in 740ms (Views: 653.3ms | ActiveRecord: 41.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /resumes.css - 200 OK (3ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /resumes.js - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-21 21:31:32 -0600
+Served asset /application.js - 200 OK (17ms)
+
+
+Started GET "/resumes/new" for 127.0.0.1 at 2013-06-21 21:31:52 -0600
+Processing by ResumesController#new as HTML
+  Rendered resumes/_form.html.erb (13.1ms)
+  Rendered resumes/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 47ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resumes" for 127.0.0.1 at 2013-06-21 21:32:26 -0600
+Processing by ResumesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6HvzMWQ8wvykr7a92XC3aG3pTwD+nmC5tvHTFgn0Zec=", "resume"=>{"name"=>"Tuyen Nguyen", "phone"=>"306-757-1986", "email"=>"tuyennguyencanada@gmail.com", "street"=>"1327 Athol Street", "city"=>"Regina", "state"=>"SK", "zip"=>"12345", "note"=>"Notes"}, "commit"=>"Create Resume"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (15.7ms)[0m  [1mINSERT INTO "resumes" ("city", "created_at", "email", "name", "note", "phone", "state", "street", "updated_at", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Regina"], ["created_at", Sat, 22 Jun 2013 03:32:26 UTC +00:00], ["email", "tuyennguyencanada@gmail.com"], ["name", "Tuyen Nguyen"], ["note", "Notes"], ["phone", "306-757-1986"], ["state", "SK"], ["street", "1327 Athol Street"], ["updated_at", Sat, 22 Jun 2013 03:32:26 UTC +00:00], ["zip", 12345]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/resumes/1
+Completed 302 Found in 25ms (ActiveRecord: 17.6ms)
+
+
+Started GET "/resumes/1" for 127.0.0.1 at 2013-06-21 21:32:26 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResume Load (0.3ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered resumes/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-21 21:33:00 -0600
+Processing by ResumesController#index as HTML
+  [1m[35mResume Load (0.2ms)[0m  SELECT "resumes".* FROM "resumes" 
+  Rendered resumes/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes/1/edit" for 127.0.0.1 at 2013-06-21 21:33:14 -0600
+Processing by ResumesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered resumes/_form.html.erb (5.6ms)
+  Rendered resumes/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes/1" for 127.0.0.1 at 2013-06-21 21:33:17 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResume Load (0.2ms)[0m  SELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered resumes/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-21 21:33:19 -0600
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.3ms)[0m  [1mSELECT "resumes".* FROM "resumes" [0m
+  Rendered resumes/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/resumes/1" for 127.0.0.1 at 2013-06-21 21:33:57 -0600
+Processing by ResumesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6HvzMWQ8wvykr7a92XC3aG3pTwD+nmC5tvHTFgn0Zec=", "id"=>"1"}
+  [1m[35mResume Load (0.2ms)[0m  SELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "resumes" WHERE "resumes"."id" = ?  [["id", 1]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/resumes
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-21 21:33:57 -0600
+Processing by ResumesController#index as HTML
+  [1m[35mResume Load (0.2ms)[0m  SELECT "resumes".* FROM "resumes" 
+  Rendered resumes/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-21 21:33:57 -0600
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-21 21:33:57 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-21 21:33:57 -0600
+Served asset /resumes.css - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateResumes (20130622031035)
+Migrating to AddIndexesToResumes (20130622034459)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_resumes_on_name" ON "resumes" ("name")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130622034459')[0m
+  [1m[35m (260.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to AddIndexesToResumes (20130622034459)
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mDROP INDEX "index_resumes_on_name"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130622034459'
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateResumes (20130622031035)
+Migrating to AddIndexesToResumes (20130622034459)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_resumes_on_zip" ON "resumes" ("zip")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130622034459')[0m
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.5ms)[0m  [1mINSERT INTO "resumes" ("city", "created_at", "email", "name", "note", "phone", "state", "street", "updated_at", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", nil], ["created_at", Sat, 22 Jun 2013 03:51:50 UTC +00:00], ["email", nil], ["name", "Tuyen Nguyen"], ["note", nil], ["phone", "306-757-1986"], ["state", nil], ["street", nil], ["updated_at", Sat, 22 Jun 2013 03:51:50 UTC +00:00], ["zip", nil]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "resumes" ("city", "created_at", "email", "name", "note", "phone", "state", "street", "updated_at", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Some city"], ["created_at", Sat, 22 Jun 2013 03:51:50 UTC +00:00], ["email", nil], ["name", "Thuy Nguyen"], ["note", nil], ["phone", "703-626-8150"], ["state", nil], ["street", nil], ["updated_at", Sat, 22 Jun 2013 03:51:50 UTC +00:00], ["zip", nil]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateResumes (20130622031035)
+Migrating to AddIndexesToResumes (20130622034459)
+Migrating to CreateJobs (20130622035929)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "company_name" varchar(255), "work_summary" text, "start_date" datetime, "end_date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130622035929')[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "company_name" varchar(255), "work_summary" text, "start_date" datetime, "end_date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "resumes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone" varchar(255), "email" varchar(255), "street" varchar(255), "city" varchar(255), "state" varchar(255), "zip" integer, "note" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE INDEX "index_resumes_on_zip" ON "resumes" ("zip")[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130622035929')[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130622031035')
+  [1m[36m (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130622034459')[0m

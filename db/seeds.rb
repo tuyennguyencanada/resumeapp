@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if Resume.count == 0
+  Resume.create(name:'Tuyen Nguyen', phone:'306-757-1986')
+  Resume.create(name:'Thuy Nguyen', phone:'703-626-8150', city:'Some city')
+end
