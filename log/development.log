@@ -220,3 +220,392 @@ Connecting to database specified by database.yml
   [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130622035929')[0m
   [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130622031035')
   [1m[36m (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130622034459')[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateResumes (20130622031035)
+Migrating to AddIndexesToResumes (20130622034459)
+Migrating to CreateJobs (20130622035929)
+Migrating to CreateViewHistories (20130622185922)
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "view_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resume_id" integer, "time_viewed" datetime, "ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130622185922')[0m
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-22 13:04:02 -0600
+Served asset /rails.png - 200 OK (13ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-22 13:04:08 -0600
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.1ms)[0m  [1mSELECT "resumes".* FROM "resumes" [0m
+  Rendered resumes/index.html.erb within layouts/application (8.1ms)
+Compiled job.css  (25ms)  (pid 460)
+Compiled application.css  (51ms)  (pid 460)
+Compiled job.js  (157ms)  (pid 460)
+Compiled application.js  (184ms)  (pid 460)
+Completed 200 OK in 665ms (Views: 564.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /resumes.css - 200 OK (3ms)
+
+
+Started GET "/assets/job.css?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /job.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /jquery_ujs.js - 200 OK (16ms)
+
+
+Started GET "/assets/job.js?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /job.js - 200 OK (2ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /resumes.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-22 13:04:09 -0600
+Served asset /application.js - 200 OK (58ms)
+
+
+Started GET "/resumes/3" for 127.0.0.1 at 2013-06-22 13:04:12 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mResume Load (0.4ms)[0m  SELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1  [["id", "3"]]
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError (undefined method `remote_url' for #<ActionDispatch::Request:0x007fde56538400>):
+  app/controllers/resumes_controller.rb:18:in `show'
+
+
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/resumes/3" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `ip`
+  [1m[36mSQL (61.7ms)[0m  [1mINSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Jun 2013 19:05:24 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 3], ["time_viewed", Sat, 22 Jun 2013 19:05:24 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:05:24 UTC +00:00]]
+  [1m[35m (34.8ms)[0m  commit transaction
+  Rendered resumes/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 190ms (Views: 57.7ms | ActiveRecord: 98.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job.css?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /job.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job.js?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /job.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-22 13:05:24 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-22 13:23:38 -0600
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.1ms)[0m  [1mSELECT "resumes".* FROM "resumes" [0m
+  Rendered resumes/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 141ms (Views: 94.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/job.css?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /job.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /resumes.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/job.js?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /job.js - 200 OK (2ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /resumes.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-22 13:23:39 -0600
+Served asset /application.js - 200 OK (12ms)
+
+
+Started GET "/resumes/3" for 127.0.0.1 at 2013-06-22 13:23:46 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mResume Load (0.5ms)[0m  SELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `ip`
+  [1m[35mSQL (19.5ms)[0m  INSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 22 Jun 2013 19:23:46 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 3], ["time_viewed", Sat, 22 Jun 2013 19:23:46 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:23:46 UTC +00:00]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  Rendered resumes/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 136ms (Views: 69.2ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-22 13:23:48 -0600
+Processing by ResumesController#index as HTML
+  [1m[35mResume Load (0.3ms)[0m  SELECT "resumes".* FROM "resumes" 
+  Rendered resumes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/3" for 127.0.0.1 at 2013-06-22 13:23:51 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.7ms)[0m  begin transaction
+Binary data inserted for `string` type on column `ip`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Jun 2013 19:23:51 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 3], ["time_viewed", Sat, 22 Jun 2013 19:23:51 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:23:51 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  Rendered resumes/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/resumes/2" for 127.0.0.1 at 2013-06-22 13:23:57 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `ip`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Jun 2013 19:23:57 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 2], ["time_viewed", Sat, 22 Jun 2013 19:23:57 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:23:57 UTC +00:00]]
+  [1m[35m (10.5ms)[0m  commit transaction
+  Rendered resumes/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/resumes/2" for 127.0.0.1 at 2013-06-22 13:24:35 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `ip`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Jun 2013 19:24:35 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 2], ["time_viewed", Sat, 22 Jun 2013 19:24:35 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:24:35 UTC +00:00]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  Rendered resumes/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 41ms (Views: 31.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/resumes/2/viewed" for 127.0.0.1 at 2013-06-22 13:24:42 -0600
+Processing by ResumesController#viewed as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mResume Load (0.3ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mViewHistory Load (0.3ms)[0m  SELECT "view_histories".* FROM "view_histories" WHERE "view_histories"."resume_id" = 2
+  Rendered resumes/viewed.html.erb within layouts/application (60.3ms)
+Completed 200 OK in 144ms (Views: 81.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/resumes/3/viewed" for 127.0.0.1 at 2013-06-22 13:25:24 -0600
+Processing by ResumesController#viewed as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mViewHistory Load (0.3ms)[0m  SELECT "view_histories".* FROM "view_histories" WHERE "view_histories"."resume_id" = 3
+  Rendered resumes/viewed.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/resumes/" for 127.0.0.1 at 2013-06-22 13:32:45 -0600
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.1ms)[0m  [1mSELECT "resumes".* FROM "resumes" [0m
+  Rendered resumes/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 46ms (Views: 25.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resumes/5" for 127.0.0.1 at 2013-06-22 13:32:48 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `to_i' for {"action"=>"show", "controller"=>"resumes", "id"=>"5"}:ActiveSupport::HashWithIndifferentAccess):
+  app/controllers/resumes_controller.rb:6:in `check_for_top_secret'
+
+
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/resumes/4" for 127.0.0.1 at 2013-06-22 13:32:52 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `to_i' for {"action"=>"show", "controller"=>"resumes", "id"=>"4"}:ActiveSupport::HashWithIndifferentAccess):
+  app/controllers/resumes_controller.rb:6:in `check_for_top_secret'
+
+
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started GET "/resumes/3" for 127.0.0.1 at 2013-06-22 13:32:56 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `to_i' for {"action"=>"show", "controller"=>"resumes", "id"=>"3"}:ActiveSupport::HashWithIndifferentAccess):
+  app/controllers/resumes_controller.rb:6:in `check_for_top_secret'
+
+
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/resumes" for 127.0.0.1 at 2013-06-22 13:33:08 -0600
+Processing by ResumesController#index as HTML
+  [1m[35mResume Load (0.3ms)[0m  SELECT "resumes".* FROM "resumes" 
+  Rendered resumes/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 78ms (Views: 76.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes/2" for 127.0.0.1 at 2013-06-22 13:33:10 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `to_i' for {"action"=>"show", "controller"=>"resumes", "id"=>"2"}:ActiveSupport::HashWithIndifferentAccess):
+  app/controllers/resumes_controller.rb:6:in `check_for_top_secret'
+
+
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/tuyennguyen/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started GET "/resumes/2" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mResume Load (0.2ms)[0m  [1mSELECT "resumes".* FROM "resumes" WHERE "resumes"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `ip`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "view_histories" ("created_at", "ip", "resume_id", "time_viewed", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Jun 2013 19:33:49 UTC +00:00], ["ip", "127.0.0.1"], ["resume_id", 2], ["time_viewed", Sat, 22 Jun 2013 19:33:49 UTC +00:00], ["updated_at", Sat, 22 Jun 2013 19:33:49 UTC +00:00]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  Rendered resumes/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 54ms (Views: 22.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job.css?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /job.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/job.js?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /job.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-22 13:33:49 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/resumes/501" for 127.0.0.1 at 2013-06-22 13:33:52 -0600
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"501"}
+  Rendered text template (0.0ms)
+Filter chain halted as :check_for_top_secret rendered or redirected
+Completed 403 Forbidden in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-27 21:18:07 -0600
+Served asset /rails.png - 200 OK (16ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2013-06-27 21:18:48 -0600
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Processing by Rails::InfoController#properties as */*
+  Rendered inline template (9.8ms)
+Completed 200 OK in 100ms (Views: 99.1ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-27 21:21:19 -0600
+Served asset /rails.png - 200 OK (3ms)
